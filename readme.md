@@ -1,9 +1,7 @@
 # Embedded view example: Local file explorer
 
 ![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?logo=GoogleChrome&logoColor=white)
-![Platforms](https://img.shields.io/badge/platform-Windows|MacOS-lightgray.svg)
-[![Node.js](https://img.shields.io/badge/Node.js-14.0-blue.svg)](https://nodejs.org/)
-[![npm](https://img.shields.io/badge/npm-6.0-blue.svg)](https://www.npmjs.com/)
+![Platforms](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey)
 
 [![License](http://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
