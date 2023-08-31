@@ -1,0 +1,101 @@
+:root {
+  --text-active: #0696d7;
+  --text-default: #3c3c3c;
+  --text-dim: rgba(60, 60, 60, 0.7);
+  --text-placeholder: rgba(60, 60, 60, 0.4);
+  --border-light: rgba(60, 60, 60, 0.1);
+}
+
+html,
+body {
+  margin: 0;
+}
+#back {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+
+  margin: 0px 16;
+  color: var(--text-default);
+  cursor: pointer;
+  padding: 8px 0px;
+  font-family: "Artifakt Element", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+#back:hover {
+  color: var(--text-active);
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#list > :last-child {
+  border-bottom: 0.3px solid var(--border-light);
+}
+#list > * {
+  border-top: 0.3px solid var(--border-light);
+}
+.item {
+  margin: 0px 16;
+  color: var(--text-default);
+  cursor: pointer;
+  padding: 8px 0px;
+
+  display: grid;
+  grid-template: 12px 10px / 24px auto auto;
+  gap: 4px;
+  grid-template-areas:
+    "icon label label"
+    "icon date size";
+}
+.item[disabled] {
+  color: var(--text-dim);
+  cursor: auto;
+}
+.item:hover {
+  color: var(--text-active);
+}
+
+.label,
+.size,
+.date {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: inherit;
+  font-weight: 400;
+  line-height: 10px;
+  letter-spacing: 0px;
+}
+.label {
+  grid-area: label;
+  font-family: "Artifakt Element", sans-serif;
+  font-size: 12px;
+}
+.date {
+  grid-area: date;
+  font-family: "Artifakt Element", sans-serif;
+  font-size: 8px;
+}
+.size {
+  grid-area: size;
+  font-family: "Artifakt Element", sans-serif;
+  font-size: 8px;
+  justify-self: end;
+}
+.icon {
+  align-self: center;
+  grid-area: icon;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
