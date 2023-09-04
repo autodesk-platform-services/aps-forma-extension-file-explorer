@@ -1,15 +1,4 @@
-import { EmbeddedViewApi } from "spacemaker-embedded-view-sdk";
-
-/*
- * Sets up the SDK to communicate with the Forma application that hosts this iFrame.
- * This allows us to use all of the Forma APIs.
- *
- * The project ID is used for authentication, and is the current auth context we are under.
- */
-const { origin, projectId } = EmbeddedViewApi.parseHostParams();
-const embeddedViewApi = new EmbeddedViewApi({
-  origin,
-});
+import { Forma } from "forma-embedded-view-sdk/auto";
 
 /**
  * Creates an element that's usable within the forma application.
@@ -20,8 +9,8 @@ const embeddedViewApi = new EmbeddedViewApi({
  * @returns {string}
  */
 export async function createElementFromGlb(name, glbContents) {
-  const { fileId } = await embeddedViewApi.integrate.uploadFile({
-    authcontext: projectId,
+  const { fileId } = await Forma.integrateElements.uploadFile({
+    authcontext: Forma.getProjectId(),
     data: glbContents,
   });
 
@@ -54,7 +43,7 @@ export async function createElementFromGlb(name, glbContents) {
     ],
   };
 
-  const { urn } = await embeddedViewApi.integrate.createElementHierarchy({
+  const { urn } = await Forma.integrateElements.createElementHierarchy({
     authcontext: projectId,
     data: {
       rootElement: scalingElement.id,
@@ -72,8 +61,8 @@ export async function createElementFromGlb(name, glbContents) {
  * @param {string} name
  */
 export async function putInLibrary(urn, name) {
-  await embeddedViewApi.library.createItem({
-    authcontext: projectId,
+  await Forma.library.createItem({
+    authcontext: Forma.getProjectId(),
     data: {
       name,
       urn,
