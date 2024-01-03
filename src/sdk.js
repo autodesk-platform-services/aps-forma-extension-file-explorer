@@ -9,8 +9,9 @@ import { Forma } from "forma-embedded-view-sdk/auto";
  * @returns {string}
  */
 export async function createElementFromGlb(name, glbContents) {
+  const projectId = Forma.getProjectId();
   const { fileId } = await Forma.integrateElements.uploadFile({
-    authcontext: Forma.getProjectId(),
+    authcontext: projectId,
     data: glbContents,
   });
 
