@@ -28,7 +28,7 @@ export async function createElementFromGlb(name, glbContents) {
     },
   };
 
-  const scale = 1; // Model is assumed to be in meters
+  const scale = 100; // Model is assumed to be in meters
   const scalingElement = {
     id: "root",
     children: [
@@ -62,7 +62,7 @@ export async function createElementFromGlb(name, glbContents) {
  * @param {string} name
  */
 export async function putInLibrary(urn, name) {
-  await Forma.library.createItem({
+  const libraryItem = await Forma.library.createItem({
     authcontext: Forma.getProjectId(),
     data: {
       name,
@@ -70,4 +70,6 @@ export async function putInLibrary(urn, name) {
       status: "success",
     },
   });
+
+  return libraryItem;
 }

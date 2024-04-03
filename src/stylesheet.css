@@ -42,6 +42,12 @@ body {
 #list > * {
   border-top: 0.3px solid var(--border-light);
 }
+
+weave-progress-bar {
+  margin: 0 16;
+  width: inherit;
+}
+
 .item {
   margin: 0px 16;
   color: var(--text-default);
