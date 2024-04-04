@@ -35,7 +35,7 @@ To know more about extensions, please visit [the official documentation found on
 
 4. Host the files statistically by executing the command `npx http-server ./src --port 5173 --cors -c-1` from the root of this repository.
 
-5. Next, we suggest you develop your own extension for Forma. Please adhere to the [guidelines](https://aps.autodesk.com/en/docs/forma/v1/overview/getting-started/) provided to accomplish this. _NOTE::_ the local development [section](https://aps.autodesk.com/en/docs/forma/v1/overview/getting-started/#local-development) will be replaced with steps 1-4.
+5. Next, we suggest you develop your own extension for Forma. Please adhere to the [guidelines](https://aps.autodesk.com/en/docs/forma/v1/overview/getting-started/) provided to accomplish this. _NOTE:_ the local development [section](https://aps.autodesk.com/en/docs/forma/v1/overview/getting-started/#local-development) will be replaced with steps 1-4.
 
    > The extension will load the server running on port `5173` inside an iFrame and enable it to interact with the Forma scene.
 

@@ -28,7 +28,10 @@ export async function createElementFromGlb(name, glbContents) {
     },
   };
 
-  const scale = 100; // Model is assumed to be in meters
+  // Model is assumed to be in cm, so we scale it up to meters
+  // Change the scale to fit your model
+  // In Forma, 1 unit is 1 meter
+  const scale = 100;
   const scalingElement = {
     id: "root",
     children: [
