@@ -1,4 +1,4 @@
-import { Forma } from "forma-embedded-view-sdk/auto";
+import { Forma } from "https://esm.sh/forma-embedded-view-sdk@0.x/auto";
 
 /**
  * Creates an element that's usable within the forma application.
