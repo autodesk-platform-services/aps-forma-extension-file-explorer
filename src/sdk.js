@@ -1,4 +1,4 @@
-import { Forma } from "forma-embedded-view-sdk/auto";
+import { Forma } from "https://esm.sh/forma-embedded-view-sdk@0.x/auto";
 
 /**
  * Creates an element that's usable within the forma application.
@@ -28,7 +28,10 @@ export async function createElementFromGlb(name, glbContents) {
     },
   };
 
-  const scale = 1; // Model is assumed to be in meters
+  // Model is assumed to be in cm, so we scale it up to meters
+  // Change the scale to fit your model
+  // In Forma, 1 unit is 1 meter
+  const scale = 100;
   const scalingElement = {
     id: "root",
     children: [
@@ -62,7 +65,7 @@ export async function createElementFromGlb(name, glbContents) {
  * @param {string} name
  */
 export async function putInLibrary(urn, name) {
-  await Forma.library.createItem({
+  const libraryItem = await Forma.library.createItem({
     authcontext: Forma.getProjectId(),
     data: {
       name,
@@ -70,4 +73,6 @@ export async function putInLibrary(urn, name) {
       status: "success",
     },
   });
+
+  return libraryItem;
 }

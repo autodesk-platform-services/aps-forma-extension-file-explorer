@@ -93,11 +93,23 @@ function renderDirectory(path, allFilesAndFolders) {
       createRow({
         entry,
         iconUrl: "/icons/file.svg",
-        onclick: () => {
+        onclick: (e) => {
+          const progressBarElement =
+            document.createElement("weave-progress-bar");
           void fetch(entry.url)
             .then((res) => res.arrayBuffer())
+            .then((bytes) => {
+              (e.target.parentElement == container
+                ? e.target
+                : e.target.parentElement
+              ).insertAdjacentElement("afterend", progressBarElement);
+              return bytes;
+            })
             .then((bytes) => createElementFromGlb(entry.label, bytes))
-            .then((urn) => putInLibrary(urn, entry.label));
+            .then((urn) => putInLibrary(urn, entry.label))
+            .then(() => alert("File added to library"))
+            .finally(() => progressBarElement.remove())
+            .catch((err) => console.error(err));
         },
       })
     )
